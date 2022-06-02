@@ -10,7 +10,8 @@ use CRM_Booking_ExtensionUtil as E;
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/
  */
-function booking_civicrm_config(&$config) {
+function booking_civicrm_config(&$config)
+{
   _booking_civix_civicrm_config($config);
 }
 
@@ -19,7 +20,8 @@ function booking_civicrm_config(&$config) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_install
  */
-function booking_civicrm_install() {
+function booking_civicrm_install()
+{
   _booking_civix_civicrm_install();
 }
 
@@ -28,7 +30,8 @@ function booking_civicrm_install() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_postInstall
  */
-function booking_civicrm_postInstall() {
+function booking_civicrm_postInstall()
+{
   _booking_civix_civicrm_postInstall();
 }
 
@@ -37,7 +40,8 @@ function booking_civicrm_postInstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_uninstall
  */
-function booking_civicrm_uninstall() {
+function booking_civicrm_uninstall()
+{
   _booking_civix_civicrm_uninstall();
 }
 
@@ -46,7 +50,8 @@ function booking_civicrm_uninstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_enable
  */
-function booking_civicrm_enable() {
+function booking_civicrm_enable()
+{
   _booking_civix_civicrm_enable();
 }
 
@@ -55,7 +60,8 @@ function booking_civicrm_enable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_disable
  */
-function booking_civicrm_disable() {
+function booking_civicrm_disable()
+{
   _booking_civix_civicrm_disable();
 }
 
@@ -64,7 +70,8 @@ function booking_civicrm_disable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_upgrade
  */
-function booking_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+function booking_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL)
+{
   return _booking_civix_civicrm_upgrade($op, $queue);
 }
 
@@ -75,7 +82,8 @@ function booking_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_entityTypes
  */
-function booking_civicrm_entityTypes(&$entityTypes) {
+function booking_civicrm_entityTypes(&$entityTypes)
+{
   _booking_civix_civicrm_entityTypes($entityTypes);
 }
 
@@ -95,14 +103,22 @@ function booking_civicrm_entityTypes(&$entityTypes) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
  */
-//function booking_civicrm_navigationMenu(&$menu) {
-//  _booking_civix_insert_navigation_menu($menu, 'Mailings', [
-//    'label' => E::ts('New subliminal message'),
-//    'name' => 'mailing_subliminal_message',
-//    'url' => 'civicrm/mailing/subliminal',
-//    'permission' => 'access CiviMail',
-//    'operator' => 'OR',
-//    'separator' => 0,
-//  ]);
-//  _booking_civix_navigationMenu($menu);
-//}
+function booking_civicrm_navigationMenu(&$menu) {
+ _booking_civix_insert_navigation_menu($menu, 'Administer', [
+   'label' => E::ts('AGILIWAY BOOKING'),
+   'name' => 'booking',
+   'url' => 'civicrm/booking',
+   'permission' => 'access CiviCRM',
+   'operator' => 'OR',
+   'separator' => 0,
+ ]);
+ _booking_civix_navigationMenu($menu);
+}
+
+function _booking_civix_addJSCss()
+{
+  CRM_Core_Resources::singleton()
+    ->addStyleFile('booking', 'css/main.min.css', 200, 'html-header');
+  CRM_Core_Resources::singleton()
+    ->addScriptFile('booking', 'js/locales-all.min.js', 201, 'html-header');
+}

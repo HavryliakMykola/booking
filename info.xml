@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <extension key="booking" type="module">
   <file>booking</file>
-  <name>FIXME</name>
-  <description>FIXME</description>
+  <name>CiviBooking</name>
+  <description>CiviBooking</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>FIXME</author>
@@ -32,5 +32,6 @@
   <mixins>
     <mixin>mgd-php@1.0.0</mixin>
     <mixin>setting-php@1.0.0</mixin>
+    <mixin>menu-xml@1.0.0</mixin>
   </mixins>
 </extension>
